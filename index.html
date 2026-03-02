@@ -228,6 +228,38 @@
             z-index: 10;
         }
 
+        .tech-specs {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-glow);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-specs ul {
+            list-style: none;
+        }
+
+        .tech-specs li {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .tech-specs li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
         .btn-glitch {
             position: relative;
             background: rgba(0, 255, 170, 0.05);
@@ -558,6 +590,21 @@
             collisions, and harvest bug reports. 100% local hardware runtime.</p>
 
         <div class="cta-container">
+            <div class="tech-specs">
+                <div
+                    style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #fff; margin-bottom: 0.8rem; text-transform: uppercase;">
+                    Technical Details & Constraints</div>
+                <ul>
+                    <li>Backend: Node 20.x</li>
+                    <li>DB: SQLite (file-based)</li>
+                    <li>Frontend: Vite dev server (port 5173)</li>
+                    <li>No external API calls</li>
+                    <li>No outbound network traffic</li>
+                    <li>Lockfile-enforced install (`npm ci`)</li>
+                    <li>Bug reports export only local artifacts</li>
+                </ul>
+            </div>
+
             <a href="https://github.com/Z3r0DayZion-install/neuraltube-pilot/releases/download/v1.0.0-pilot/NeuralTube_Pilot_Protocol_Pack.zip"
                 class="btn-glitch" id="downloadBtn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -597,7 +644,8 @@
                     <div class="line success l4">[+] DB: SQLite Local Vault Initialized</div>
                     <div class="line warn l5">[!] TIER: Upgrades locked to local deterministic rules</div>
                     <div class="line l6"><span class="sys">[AWAITING]</span> Awaiting manual telemetry induction...
-                        <span class="cursor"></span></div>
+                        <span class="cursor"></span>
+                    </div>
                 </div>
 
                 <div class="requirements-block">
